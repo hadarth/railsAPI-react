@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+(1..2).each do |i|
+  Page.create!(title: "Public Page #{i}", content: "Public content #{i}", allow_unauth: true) rescue nil
+  Page.create!(title: "Private Page #{i}", content: "Super secret content #{i}", allow_unauth: false) rescue nil
+end
+
+User.create!(email: 'hadar.schindler@example.com', password: 'test')
