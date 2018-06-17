@@ -11,4 +11,4 @@
   Page.create!(title: "Private Page #{i}", content: "Super secret content #{i}", allow_unauth: false) rescue nil
 end
 
-User.create!(email: 'hadar.schindler@example.com', password: 'test')
+User.create!(email: 'hadar.schindler@example.com', password: '1234567890')
