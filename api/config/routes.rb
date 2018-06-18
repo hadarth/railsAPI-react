@@ -4,5 +4,8 @@ Rails.application.routes.draw do
     post 'user/token' => 'user_token#create'
     get 'users/current' => 'users#current'
     resources :pages, only: %i(index show)
+    resources :posts, only: %i(index show)
+    resources :events, only: %i(index show)
+    resources :users, only: %i(index show)
   end
 end
