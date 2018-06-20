@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :posts, only: %i(index show)
     resources :events, only: %i(index show)
     resources :users, only: %i(index show)
+    resources :managers, only: %i(index show)
   end
 end
