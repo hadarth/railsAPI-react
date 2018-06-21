@@ -79,7 +79,7 @@ const convertHTTPResponseToDataProvider = (response, type, resource, params) => 
     const { headers, json } = response;
     switch (type) {
     case GET_LIST:
-        debugger
+        // debugger
         return {
             data: json.map(x => x),
             total: json.length,

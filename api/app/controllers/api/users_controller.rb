@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user
 
   def index
     render json: User.select(:id, :first_name, :last_name, :official_id, :age, :ticket_token, :role, :phone, :fb_profile_url, :email, :password_digest)
@@ -10,11 +10,12 @@ class Api::UsersController < ApplicationController
   end
 
   def current
-    render json: current_user.as_json(only: %i(first_name last_name official_id age ticket_token role phone fb_profile_url email password_digest))
+    # binding.pry
+    render json: current_user.as_json(only: %i(id email))
   end
 
-    def post_access
-    !@user.allow_unauth
+  def post_access
+  !@user.allow_unauth
   end
 
 end
