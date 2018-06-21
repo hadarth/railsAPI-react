@@ -12040,3 +12040,75 @@ Processing by Api::PostsController#index as JSON
 Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:14:40 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/user/token" for 127.0.0.1 at 2018-06-21 12:14:54 +0300
+Processing by Api::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'eric.london@example.com' LIMIT 1[0m
+  ↳ /Users/schindler/.rvm/gems/ruby-2.5.1@startup150618/gems/knock-2.1.1/app/controllers/knock/auth_token_controller.rb:31
+Completed 201 Created in 55ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:14:54 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:15:25 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/user/token" for 127.0.0.1 at 2018-06-21 12:15:33 +0300
+Processing by Api::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'eric.london@example.com' LIMIT 1[0m
+  ↳ /Users/schindler/.rvm/gems/ruby-2.5.1@startup150618/gems/knock-2.1.1/app/controllers/knock/auth_token_controller.rb:31
+Completed 201 Created in 59ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:15:33 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:16:04 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/user/token" for 127.0.0.1 at 2018-06-21 12:16:09 +0300
+Processing by Api::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"eric.london@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'eric.london@example.com' LIMIT 1[0m
+  ↳ /Users/schindler/.rvm/gems/ruby-2.5.1@startup150618/gems/knock-2.1.1/app/controllers/knock/auth_token_controller.rb:31
+Completed 201 Created in 58ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts?filter=%7B%7D&range=%5B0%2C9%5D&sort=%5B%22id%22%2C%22DESC%22%5D" for 127.0.0.1 at 2018-06-21 12:16:09 +0300
+Processing by Api::PostsController#index as JSON
+  Parameters: {"filter"=>"{}", "range"=>"[0,9]", "sort"=>"[\"id\",\"DESC\"]", "post"=>{}}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT `posts`.`id`, `posts`.`title`, `posts`.`body`, `posts`.`allow_unauth` FROM `posts`[0m
+  ↳ app/controllers/api/posts_controller.rb:6
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+

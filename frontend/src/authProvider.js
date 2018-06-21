@@ -17,11 +17,9 @@ export default (type, params) => {
       return response.json();
     })
     .then(({ jwt }) => {
-      console.group('%c User Token:', 'color: green; font-weight: bold;');
-      // console.log('%c User Token:', 'color: green; font-weight: bold;');
-      console.log('%c' + jwt, 'color: blue; font-weight: bold;');
+      console.groupCollapsed('%c ****User Login Token ---> LocalSorage****', 'color: green; font-weight: bold;');
+        console.log('%c' + jwt, 'color: blue; font-weight: bold;');
       console.groupEnd();
-      // console.log("user token: ", jwt)
       localStorage.setItem('token', jwt);
     });
   }
