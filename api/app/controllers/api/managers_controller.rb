@@ -3,7 +3,7 @@ class Api::ManagersController < ApplicationController
   before_action :authenticate_user, only: %i(show), if: :manager_access
 
   def index
-    render json: Manager.select(:id, :user_id, :event_id)
+    render json: current_event.managers_list
   end
 
   def show

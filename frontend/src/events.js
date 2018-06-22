@@ -84,8 +84,8 @@ export const PostShowTabbed = (props) => (
       <Tab label="Managers">
         <ReferenceManyField reference="managers" target="event_id" addLabel={false}>
           <Datagrid>
-            <TextField source="user_id" />
-            <TextField source="event_id" />
+            <TextField source="first_name" />
+            <TextField source="last_name" />
             <EditButton />
           </Datagrid>
         </ReferenceManyField>
