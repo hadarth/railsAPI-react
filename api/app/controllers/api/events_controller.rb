@@ -1,13 +1,12 @@
 class Api::EventsController < ApplicationController
-  before_action :set_event, only: %i(show)
-  before_action :authenticate_user, only: %i(show), if: :event_access
+  before_action :authenticate_user
 
   def index
-    render json: Event.select(:id, :title, :url, :event_type, :state, :city, :street, :street_num, :start_date_time, :end_date_time, :age_limit, :privacy, :croud_selection, :body_heb, :body_eng, :allow_unauth, :owner_id, :event_password)
+    render json: current_user.managed_events
   end
 
   def show
-    render json: @event.as_json(only: %i(id, title url event_type state city street street_num start_date_time end_date_time age_limit privacy croud_selection body_heb body_eng allow_unauth owner_id event_password))
+    render json: Event.find_by_id(params[:id])
   end
 
   private

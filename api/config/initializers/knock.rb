@@ -1,13 +1,13 @@
 Knock.setup do |config|
 
-  ## Expiration claim
-  ## ----------------
-  ##
-  ## How long before a token is expired. If nil is provided, token will
-  ## last forever.
-  ##
-  ## Default:
-  # config.token_lifetime = 1.day
+  # Expiration claim
+  # ----------------
+  #
+  # How long before a token is expired. If nil is provided, token will
+  # last forever.
+  #
+  # Default:
+  config.token_lifetime = 2.hours
 
 
   ## Audience claim

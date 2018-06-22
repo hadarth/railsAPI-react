@@ -2,7 +2,6 @@ import React from 'react';
 import { List, Datagrid, TextField } from 'react-admin';
 
 export const UserList = (props) => {
-    debugger
     return (<List {...props}>
         <Datagrid>
             <TextField source="id" />

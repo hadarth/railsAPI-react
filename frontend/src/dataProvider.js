@@ -28,15 +28,15 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
             range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
             filter: JSON.stringify(params.filter),
         };
-        return { url: `${API_URL}/${resource}?${stringify(query)}` };
+        return { url: `${API_URL}/${resource}?${stringify(query)}`, options: {} };
     }
     case GET_ONE:
-        return { url: `${API_URL}/${resource}/${params.id}` };
+        return { url: `${API_URL}/${resource}/${params.id}`, options: {} };
     case GET_MANY: {
         const query = {
             filter: JSON.stringify({ id: params.ids }),
         };
-        return { url: `${API_URL}/${resource}?${stringify(query)}` };
+        return { url: `${API_URL}/${resource}?${stringify(query)}`, options: {} };
     }
     case GET_MANY_REFERENCE: {
         const { page, perPage } = params.pagination;
@@ -46,7 +46,7 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
             range: JSON.stringify([(page - 1) * perPage, (page * perPage) - 1]),
             filter: JSON.stringify({ ...params.filter, [params.target]: params.id }),
         };
-        return { url: `${API_URL}/${resource}?${stringify(query)}` };
+        return { url: `${API_URL}/${resource}?${stringify(query)}`, options: {} };
     }
     case UPDATE:
         return {
@@ -79,7 +79,6 @@ const convertHTTPResponseToDataProvider = (response, type, resource, params) => 
     const { headers, json } = response;
     switch (type) {
     case GET_LIST:
-        // debugger
         return {
             data: json.map(x => x),
             total: json.length,
@@ -100,6 +99,11 @@ const convertHTTPResponseToDataProvider = (response, type, resource, params) => 
 export default (type, resource, params) => {
     const { fetchJson } = fetchUtils;
     const { url, options } = convertDataProviderRequestToHTTP(type, resource, params);
+    if (!options || !options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+    }
+    const token = localStorage.getItem('token');
+    options.headers.set('Authorization', `Bearer ${token}`);
     return fetchJson(url, options)
         .then(response => convertHTTPResponseToDataProvider(response, type, resource, params));
 };
