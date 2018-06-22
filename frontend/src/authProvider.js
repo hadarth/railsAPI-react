@@ -29,11 +29,13 @@ export default (type, params) => {
 
       const decodedToken = decodeJwt(jwt);
       localStorage.setItem('token', jwt);
+      localStorage.setItem('et-user', username);
       localStorage.setItem('role', decodedToken.role); //we dont add role in server side yet
     });
   }
   if (type === AUTH_LOGOUT) {
     localStorage.removeItem('token');
+    localStorage.removeItem('et-user');
     return Promise.resolve();
   }
   if (type === AUTH_ERROR) {

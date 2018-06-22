@@ -21,18 +21,19 @@ const theme = createMuiTheme({
   },
 });
 
+const titleStr = "eventech.io " + localStorage.getItem('et-user');
 
 const App = () => (
   <Admin
-    title="eventec.io"
+    title={titleStr}
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={Login}
     theme={theme}
   >
-      <Resource name="users" list={UserList} />
+      <Resource name="users" />
       <Resource name="events" list={EventList} show={PostShowTabbed} create={PostShowTabbed} edit={PostShowTabbed}/>
-      <Resource name="managers" list={ManagerList} />
+      <Resource name="managers"/>
       <Resource name="promoters" />
   </Admin>
 );
