@@ -47,12 +47,13 @@ export default (type, params) => {
   if (type === AUTH_CHECK) {
     // here we check credentials for each resource
     // example: localStorage.getItem('token') ? Promise.resolve() : Promise.reject({ redirectTo: '/no-access' });
+    const { resource } = params;
+
     console.groupCollapsed('%c AUTH_CHECK', 'color: blue; font-weight: bold;');
       console.log("params: ",params)
       console.log("resource: ",resource)
     console.groupEnd();
 
-    const { resource } = params;
     if (resource === 'users') {
       // check credentials for the users resource
     }

@@ -1,9 +1,10 @@
 class Api::ManagersController < ApplicationController
-  before_action :set_manager, only: %i(show)
+  # before_action :set_manager, only: %i(show)
   before_action :authenticate_user, only: %i(show), if: :manager_access
 
   def index
-    render json: current_event.managers_list
+    evnt_id = JSON.parse(params[:filter]).symbolize_keys[:event_id]
+    render json: Event.find_by_id(evnt_id).managers_list
   end
 
   def show

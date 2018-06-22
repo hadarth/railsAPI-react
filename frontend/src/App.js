@@ -33,6 +33,7 @@ const App = () => (
       <Resource name="users" list={UserList} />
       <Resource name="events" list={EventList} show={PostShowTabbed} create={PostShowTabbed} edit={PostShowTabbed}/>
       <Resource name="managers" list={ManagerList} />
+      <Resource name="promoters" />
   </Admin>
 );
 

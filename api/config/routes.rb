@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :events, only: %i(index show)
     resources :users, only: %i(index show)
     resources :managers, only: %i(index show)
+    resources :promoters, only: %i(index show)
   end
 end
