@@ -11,6 +11,8 @@ import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from '
 import { UserList } from './users';
 import { ManagerList } from './managers';
 
+import dashboard from './dashboard';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
@@ -28,9 +30,9 @@ const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={Login}
+    dashboard={dashboard}
     theme={theme}
   >
-      <Resource name="welcome" />
       <Resource name="events" list={EventList} show={EventShowTabbed} create={EventCreateSimple} edit={EventEditSimple}/>
       <Resource name="users" />
       <Resource name="managers"/>
