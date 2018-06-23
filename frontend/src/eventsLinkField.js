@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-admin';
 
 const EventLinkField = props => (
-    <Link to={`/events/${props.record.id}`}>
+    <Link to={`/events/${props.record.id}/show`}>
         {props.record.title}
     </Link>
 );

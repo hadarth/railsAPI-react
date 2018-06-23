@@ -3,6 +3,8 @@ import Button from '@material-ui/core/Button';
 import { List, Datagrid, TextField, CardActions, CreateButton, RefreshButton  } from 'react-admin';
 import { Show, SimpleShowLayout, DateField, EditButton, RichTextField } from 'react-admin';
 import { NumberField, BooleanField, ReferenceManyField } from 'react-admin';
+import { Create, Edit, SimpleForm, DisabledInput, TextInput, DateInput, LongTextInput } from 'react-admin';
+import RichTextInput from 'ra-input-rich-text';
 import EventLinkField from './eventsLinkField'
 
 
@@ -52,8 +54,8 @@ export const EventShowSimple = (props) => {
   )
 };
 
-export const PostShowTabbed = (props) => (
-  <Show {...props}>
+export const EventShowTabbed = (props) => (
+  <Show title={<EventTitle />} {...props}>
     <TabbedShowLayout>
       <Tab label="summary">
         <TextField label="Id" source="id" />
@@ -81,29 +83,73 @@ export const PostShowTabbed = (props) => (
         <TextField source="street" />
         <TextField source="street_num" />
       </Tab>
-      <Tab label="Managers">
-        <ReferenceManyField reference="managers" target="event_id" addLabel={false}>
-          <Datagrid>
-            <TextField source="first_name" />
-            <TextField source="last_name" />
-            <EditButton />
-          </Datagrid>
-        </ReferenceManyField>
-      </Tab>
-      <Tab label="Promoters">
-        <ReferenceManyField reference="promoters" target="event_id" addLabel={false}>
-          <Datagrid>
-            <TextField source="first_name" />
-            <TextField source="last_name" />
-            <EditButton />
-          </Datagrid>
-        </ReferenceManyField>
+      <Tab label="Event Staff">
+        <TabbedShowLayout>
+          <Tab label="Managers">
+            <ReferenceManyField reference="managers" target="event_id" addLabel={false}>
+              <Datagrid>
+                <TextField source="first_name" />
+                <TextField source="last_name" />
+                <EditButton />
+              </Datagrid>
+            </ReferenceManyField>
+          </Tab>
+          <Tab label="Promoters">
+            <ReferenceManyField reference="promoters" target="event_id" addLabel={false}>
+              <Datagrid>
+                <TextField source="first_name" />
+                <TextField source="last_name" />
+                <EditButton />
+              </Datagrid>
+            </ReferenceManyField>
+          </Tab>
+        </TabbedShowLayout>
       </Tab>
     </TabbedShowLayout>
   </Show>
 );
 
 const EventTitle = ({ record }) => {
-  return <span>Event {record ? `"${record.title}"` : ''}</span>;
+  return <span>{record ? `${record.title}` : ''}</span>;
 };
 
+
+export const EventCreateSimple = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <TextInput label="title" source="title" />
+            <TextInput label="url" source="url" />
+            <TextInput label="state" source="state" />
+            <TextInput label="city" source="city" />
+            <TextInput label="street" source="street" />
+            <TextInput label="street_num" source="street_num" />
+            <DateInput label="Event start time" source="start_date_time" defaultValue={new Date()} />
+            <DateInput label="Event end time" source="end_date_time" defaultValue={new Date()} />
+            <TextInput label="age limit" source="age_limit" />
+            <TextInput label="croud selection" source="croud_selection" />
+            <RichTextInput label="Hebrew" source="body_heb" />
+            <RichTextInput label="English" source="body_eng" />
+            <TextInput label="event password" source="event_password" />
+        </SimpleForm>
+    </Create>
+);
+
+export const EventEditSimple = (props) => (
+    <Edit title={<EventTitle />} {...props}>
+        <SimpleForm>
+            <TextInput label="title" source="title" />
+            <TextInput label="url" source="url" />
+            <TextInput label="state" source="state" />
+            <TextInput label="city" source="city" />
+            <TextInput label="street" source="street" />
+            <TextInput label="street_num" source="street_num" />
+            <DateInput label="Event start time" source="start_date_time" defaultValue={new Date()} />
+            <DateInput label="Event end time" source="end_date_time" defaultValue={new Date()} />
+            <TextInput label="age limit" source="age_limit" />
+            <TextInput label="croud selection" source="croud_selection" />
+            <RichTextInput label="Hebrew" source="body_heb" />
+            <RichTextInput label="English" source="body_eng" />
+            <TextInput label="event password" source="event_password" />
+        </SimpleForm>
+    </Edit>
+);
