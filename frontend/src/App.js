@@ -1,3 +1,4 @@
+// import 'babel-polyfill';
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 
@@ -6,11 +7,9 @@ import authProvider from './authProvider';
 
 import Login from './login';
 
-import { EventList, PostShowTabbed } from './events';
+import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from './events';
 import { UserList } from './users';
 import { ManagerList } from './managers';
-// import { PromoterList } from './promoters';
-
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -31,8 +30,9 @@ const App = () => (
     loginPage={Login}
     theme={theme}
   >
+      <Resource name="welcome" />
+      <Resource name="events" list={EventList} show={EventShowTabbed} create={EventCreateSimple} edit={EventEditSimple}/>
       <Resource name="users" />
-      <Resource name="events" list={EventList} show={PostShowTabbed} create={PostShowTabbed} edit={PostShowTabbed}/>
       <Resource name="managers"/>
       <Resource name="promoters" />
   </Admin>
