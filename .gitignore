@@ -2,7 +2,9 @@
 
 # dependencies
 frontend/node_modules
-/api/tmp
+/tmp
+/api/log/
+/api/tmp/
 
 # testing
 /coverage
