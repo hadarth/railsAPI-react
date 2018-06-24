@@ -3,15 +3,15 @@ import React from 'react';
 import { Admin, Resource } from 'react-admin';
 
 import dataProvider from './dataProvider';
-import authProvider from './authProvider';
+import authProvider from './authentication/authProvider';
 
-import Login from './login';
+import Login from './authentication/Login';
+import LogoutButton from './authentication/Logout';
 
-import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from './events';
-import { UserList } from './users';
-import { ManagerList } from './managers';
-
-import dashboard from './dashboard';
+// import { Layout } from './layout/Layout';
+// import Menu from './layout/MenuAppBar';
+import Dashboard from './components/Dashboard';
+import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from './components/events/events';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -22,15 +22,16 @@ const theme = createMuiTheme({
   },
 });
 
-const titleStr = "eventech.io " + localStorage.getItem('et-user');
+const titleString = "eventech.io " + (localStorage.getItem('et-user') || "guest");
 
 const App = () => (
   <Admin
-    title={titleStr}
+    title={titleString}
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={Login}
-    dashboard={dashboard}
+    logoutButton={LogoutButton}
+    dashboard={Dashboard}
     theme={theme}
   >
       <Resource name="events" list={EventList} show={EventShowTabbed} create={EventCreateSimple} edit={EventEditSimple}/>

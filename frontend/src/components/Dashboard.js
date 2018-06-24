@@ -5,8 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import HomeIcon from '@material-ui/icons/Home';
-import CodeIcon from '@material-ui/icons/Code';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import SignInIcon from '@material-ui/icons/Person';
 import { withStyles } from '@material-ui/core/styles';
 
 import { translate } from 'react-admin';
@@ -17,10 +17,10 @@ const styles = {
     },
 };
 
-const randomMediaUrl = `https://marmelab.com/posters/beard-${parseInt(
-    Math.random() * 10,
-    10
-) + 1}.jpeg`;
+// const randomMediaUrl = `https://marmelab.com/posters/beard-${parseInt(
+//     Math.random() * 10,
+//     10
+// ) + 1}.jpeg`;
 
 const mediaUrl = 'http://identity-mag.com/wp-content/uploads/2017/08/party-in-barcelona.jpg';
 
@@ -37,12 +37,12 @@ const Dashboard = ({ classes, translate }) => (
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
             <Button href="https://marmelab.com/react-admin">
-                <HomeIcon style={{ paddingRight: '0.5em' }} />
-                {translate('pos.dashboard.welcome.aor_button')}
+                <PersonAddIcon style={{ paddingRight: '0.5em' }} />
+                sign up
             </Button>
             <Button href="https://github.com/marmelab/react-admin/tree/master/examples/demo">
-                <CodeIcon style={{ paddingRight: '0.5em' }} />
-                {translate('pos.dashboard.welcome.demo_button')}
+                <SignInIcon style={{ paddingRight: '0.5em' }} />
+                login
             </Button>
         </CardActions>
     </Card>

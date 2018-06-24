@@ -42,6 +42,7 @@ export default (type, params) => {
     const status  = params.status;
     if (status === 401 || status === 403) {
       localStorage.removeItem('token');
+      localStorage.removeItem('et-user');
       return Promise.reject();
     }
     return Promise.resolve();
@@ -72,7 +73,7 @@ export default (type, params) => {
   return Promise.resolve();
 }
 
-let data = { auth: { email: 'eric.london@example.com', password: "password" } }
+// let data = { auth: { email: 'eric.london@example.com', password: "password" } }
 
 
 

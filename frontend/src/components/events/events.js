@@ -1,12 +1,29 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { List, Datagrid, TextField, CardActions, CreateButton, RefreshButton  } from 'react-admin';
-import { Show, SimpleShowLayout, DateField, EditButton, RichTextField } from 'react-admin';
-import { NumberField, BooleanField, ReferenceManyField } from 'react-admin';
-import { Create, Edit, SimpleForm, DisabledInput, TextInput, DateInput, LongTextInput } from 'react-admin';
+// import Button from '@material-ui/core/Button';
 import RichTextInput from 'ra-input-rich-text';
 import EventLinkField from './eventsLinkField'
 
+import { List,
+        Datagrid,
+        // CardActions,
+        // CreateButton,
+        EditButton,
+        Show,
+        Create,
+        Edit,
+        SimpleForm,
+        SimpleShowLayout,
+        DateField,
+        RichTextField,
+        TextField,
+        NumberField,
+        BooleanField,
+        ReferenceManyField,
+        // DisabledInput,
+        TextInput,
+        DateInput,
+        // LongTextInput
+      } from 'react-admin';
 
 import { TabbedShowLayout, Tab } from 'react-admin'
 

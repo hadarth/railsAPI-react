@@ -76,7 +76,8 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
  * @returns {Object} Data Provider response
  */
 const convertHTTPResponseToDataProvider = (response, type, resource, params) => {
-    const { headers, json } = response;
+    const { json } = response;
+    // const { headers } = response;
     switch (type) {
     case GET_LIST:
         return {
