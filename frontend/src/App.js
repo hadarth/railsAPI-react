@@ -15,6 +15,8 @@ import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from '
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
+import i18nProvider from './i18nProvider';
+
 const theme = createMuiTheme({
   direction: 'ltr',
   palette: {

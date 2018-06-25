@@ -22,11 +22,10 @@ import { List,
         // DisabledInput,
         TextInput,
         DateInput,
-        // LongTextInput
+        // LongTextInput,
+        TabbedShowLayout,
+        Tab
       } from 'react-admin';
-
-import { TabbedShowLayout, Tab } from 'react-admin'
-
 
 export const EventList = (props) => {
   return (
