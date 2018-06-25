@@ -35,6 +35,8 @@ const App = () => (
     logoutButton={LogoutButton}
     dashboard={Dashboard}
     theme={theme}
+    i18nProvider={i18nProvider}
+    locale="he"
   >
       <Resource name="events" list={EventList} show={EventShowTabbed} create={EventCreateSimple} edit={EventEditSimple}/>
       <Resource name="users" />
