@@ -1,48 +1,21 @@
-// import 'babel-polyfill';
-import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import React, { PropTypes } from 'react'
+import logo from './logo.svg'
+import './App.css'
 
-import dataProvider from './dataProvider';
-import authProvider from './authentication/authProvider';
+const App = props => (
+  <div className="App">
+    <div className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <h2>eventech.io</h2>
+    </div>
+    <section className="App-body">
+      {props.children}
+    </section>
+  </div>
+)
 
-import Login from './authentication/Login';
-import LogoutButton from './authentication/Logout';
+App.propTypes = {
+  children: PropTypes.node,
+}
 
-// import { Layout } from './layout/Layout';
-// import Menu from './layout/MenuAppBar';
-import Dashboard from './components/Dashboard';
-import { EventList, EventShowTabbed, EventCreateSimple, EventEditSimple } from './components/events/events';
-
-import { createMuiTheme } from '@material-ui/core/styles';
-
-import i18nProvider from './i18nProvider';
-
-const theme = createMuiTheme({
-  direction: 'ltr',
-  palette: {
-    type: 'light', // Switching the dark mode on is a single property value change.
-  },
-});
-
-const titleString = "eventech.io " + (localStorage.getItem('et-user') || "guest");
-
-const App = () => (
-  <Admin
-    title={titleString}
-    dataProvider={dataProvider}
-    authProvider={authProvider}
-    loginPage={Login}
-    logoutButton={LogoutButton}
-    dashboard={Dashboard}
-    theme={theme}
-    i18nProvider={i18nProvider}
-    locale="he"
-  >
-      <Resource name="events" list={EventList} show={EventShowTabbed} create={EventCreateSimple} edit={EventEditSimple}/>
-      <Resource name="users" />
-      <Resource name="managers"/>
-      <Resource name="promoters" />
-  </Admin>
-);
-
-export default App;
+export default App
