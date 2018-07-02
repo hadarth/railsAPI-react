@@ -1,14 +1,15 @@
-import { CLIENT_SET, CLIENT_UNSET } from './constants'
+import { USER_SET, USER_UNSET } from './constants'
 
-export function setClient (token) {
+export function setUser (token, email) {
   return {
-    type: CLIENT_SET,
+    type: USER_SET,
     token,
+    email,
   }
 }
 
-export function unsetClient () {
+export function unsetUser () {
   return {
-    type: CLIENT_UNSET,
+    type: USER_UNSET,
   }
 }
