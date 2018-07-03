@@ -1,16 +1,10 @@
-import React, { PropTypes } from 'react'
-import logo from './logo.svg'
+import React from 'react'
+import PropTypes from 'prop-types';
 import './App.css'
 
 const App = props => (
   <div className="App">
-    <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h2>eventech.io</h2>
-    </div>
-    <section className="App-body">
-      {props.children}
-    </section>
+    {props.children}
   </div>
 )
 
