@@ -50,7 +50,7 @@ export function checkIndexAuthorization ({ dispatch }) {
     }
 
     // Otherwise let's take them to login!
-    replace('login')
+    replace('welcome')
     return next()
   }
 }

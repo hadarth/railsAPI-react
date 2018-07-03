@@ -13,7 +13,9 @@ import {
 import App from './App'
 import Login from './login'
 import Signup from './signup'
-import Dashboard from './dashboard'
+// import Dashboard from './dashboard'
+import Dashboard from './dashboard/dashboard2'
+import Welcome from './welcome'
 import './index.css'
 
 // Import the index reducer and sagas
@@ -43,6 +45,7 @@ ReactDOM.render(
       <Route path="/" component={App} >
         <IndexRoute onEnter={checkIndexAuthorization(store)} />
         <Route path="/login" component={Login} />
+        <Route path="/welcome" component={Welcome} />
         <Route exact path="/signup" component={Signup} />
         <Route onEnter={checkDashboardAuthorization(store)} path="/Dashboard" component={Dashboard} />
       </Route>

@@ -1,36 +1,92 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { unsetUser } from '../current_user/actions'
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
 
-class Dashboard extends Component {
+import List from '@material-ui/core/List';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
-  componentDidMount() { }
-  componentDidUpdate(prevProps) {}
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-  handleLogoutClick() {
-    this.props.unsetUser()
-  }
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+
+import styles from './dashboard-style'
+import CustomAppBar from './CustomAppBar'
+
+import { closeDrawer } from './actions'
+
+class Dashboard extends React.Component {
+
+  handleDrawerClose = () => {
+    this.props.closeDrawer()
+  };
 
   render() {
+    const { classes, theme, dashboard: { drawer } } = this.props;
+
     return (
-      <div>
-        <div>Dashboard!</div>
-        <button onClick={() => this.handleLogoutClick()}>Logout</button>
+      <div className={classes.root}>
+        <CustomAppBar />
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classNames(classes.drawerPaper,  drawer.open && classes.drawerPaperClose),
+          }}
+          open={drawer.open}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={this.handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <ListItem button>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+            </ListItem>
+          </List>
+          <Divider />
+          <List>
+            <ListItem button>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+            </ListItem>
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+        </main>
       </div>
     );
   }
 }
 
 Dashboard.propTypes = {
-
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = () => ({});
-
+const mapStateToProps = state => ({
+  dashboard: state.dashboard,
+})
 
 Dashboard = connect(
   mapStateToProps,
-  { unsetUser }
+  { closeDrawer }
 )(Dashboard);
 
-export default Dashboard;
+export default withStyles(styles, { withTheme: true })(Dashboard);

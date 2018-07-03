@@ -23,8 +23,6 @@ import {
   USER_UNSET,
 } from '../current_user/constants'
 
-// const loginUrl = `${process.env.REACT_APP_API_URL}/api/Clients/login`
-const loginUrl = 'http://localhost:8000/api/users/token'
 
 function loginApi (email, password) {
   let data = { auth: { email: email, password: password } }
