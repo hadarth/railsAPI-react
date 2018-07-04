@@ -17,16 +17,18 @@ class App extends Component {
     if (!storedToken || !storedEmail) {
       this.props.history.push('/welcome')
     }
+    else {
+      this.props.history.push('/dashboard')
+    }
   }
 
   render() {
     return (
       <div className="App">
-        <div>app</div>
         <Route path="/login" component={Login} />
         <Route path="/welcome" component={Welcome} />
         <Route exact path="/signup" component={Signup} />
-        <Route path="/Dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
       </div>
     );
   }
