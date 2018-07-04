@@ -22,6 +22,10 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import { connect } from 'react-redux';
 import { closeDrawer, openDrawer } from './actions'
 import styles from './dashboard-style'
+import { Route, Switch, Link } from 'react-router-dom';
+
+import MyEvents from '../events'
+import Statistics from './statistics'
 
 class MiniDrawer extends React.Component {
 
@@ -31,6 +35,14 @@ class MiniDrawer extends React.Component {
     if (!storedToken || !storedEmail) {
       this.props.history.push('/login')
     }
+  }
+
+  dashClick = () => {
+    this.props.history.push('/dashboard/stats')
+  }
+
+  eventsClick = () => {
+    this.props.history.push('/dashboard/events')
   }
 
   handleDrawerOpen = () => {
@@ -82,17 +94,17 @@ class MiniDrawer extends React.Component {
 
   renderDrawerList = () => (
     <List>
-      <ListItem button>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-      </ListItem>
-      <ListItem button>
+        <ListItem button onClick={this.dashClick}>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+      <ListItem button onClick={this.eventsClick}>
         <ListItemIcon>
           <DraftsIcon />
         </ListItemIcon>
-        <ListItemText primary="Inbox" />
+        <ListItemText primary="My Events" />
       </ListItem>
     </List>
   )
@@ -107,6 +119,8 @@ class MiniDrawer extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Typography >{'Dashboard items goes here'}</Typography>
+          <Route path='/dashboard/events' component={MyEvents} />
+          <Route path='/dashboard/stats' component={Statistics} />
         </main>
       </div>
     );

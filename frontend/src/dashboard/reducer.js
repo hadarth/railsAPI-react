@@ -1,7 +1,7 @@
 import { OPEN_DRAWER, CLOSE_DRAWER } from './constants'
 
 const initialSate = {
-  drawer: {open: false},
+  drawer: {open: true},
 }
 
 const reducer = function clientReducer (state = initialSate, action) {

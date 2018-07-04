@@ -1,4 +1,4 @@
-const drawerWidth = 150;
+const drawerWidth = 200;
 export default (theme) => ({
   root: {
     flexGrow: 1,
