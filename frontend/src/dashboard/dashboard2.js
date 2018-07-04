@@ -23,8 +23,6 @@ import { connect } from 'react-redux';
 import { closeDrawer, openDrawer } from './actions'
 import styles from './dashboard-style'
 
-import { push } from 'react-router-redux';
-
 class MiniDrawer extends React.Component {
 
   componentWillMount() {

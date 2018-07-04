@@ -9,13 +9,8 @@ import createHistory from "history/createBrowserHistory";
 import {
   ConnectedRouter,
   routerMiddleware,
-  push
 } from "react-router-redux";
 
-import {
-  checkIndexAuthorization,
-  checkDashboardAuthorization,
-} from './lib/check-auth'
 // Import all of our components
 import App from './App'
 
