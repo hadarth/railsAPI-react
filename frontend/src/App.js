@@ -1,15 +1,55 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './App.css'
 
-const App = props => (
-  <div className="App">
-    {props.children}
-  </div>
-)
+import Login from './login'
+import Signup from './signup'
+import Dashboard from './dashboard/dashboard2'
+import Welcome from './welcome'
 
-App.propTypes = {
-  children: PropTypes.node,
+import { Route } from "react-router-dom";
+
+class App extends Component {
+
+  componentWillMount() {
+    const storedToken = localStorage.getItem('token')
+    const storedEmail = localStorage.getItem('email')
+    if (!storedToken || !storedEmail) {
+      this.props.history.push('/welcome')
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Route path="/welcome" component={Welcome} />
+        <div>app</div>
+        <Route path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route path="/Dashboard" component={Dashboard} />
+      </div>
+    );
+  }
 }
 
-export default App
+App.propTypes = {
+
+};
+
+const mapStateToProps = () => {
+ return {}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+};
+
+App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
+export default App;

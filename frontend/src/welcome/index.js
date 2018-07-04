@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router'
 
 class Welcome extends Component {
 
   handleClick() {
-    browserHistory.push('/login')
+    this.props.history.push('/login')
   }
 
   render() {

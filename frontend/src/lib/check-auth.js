@@ -4,7 +4,7 @@ function checkAuthorization (dispatch) {
   // attempt to grab the token from localstorage
   const storedToken = localStorage.getItem('token')
   const storedEmail = localStorage.getItem('email')
-
+  // debugger
   // if it exists
   if (storedToken) {
     // parse it down into an object
@@ -25,7 +25,7 @@ function checkAuthorization (dispatch) {
     dispatch(setUser(token, storedEmail))
     return true
   }
-
+  // debugger
   return false
 }
 
@@ -39,7 +39,7 @@ export function checkIndexAuthorization ({ dispatch }) {
   // `nextState` - the next "route" we're navigating to in the router
   // `replace` - a helper to change the route
   // `next` - what we call when we're done messing around
-  //
+  // debugger
   return (nextState, replace, next) => {
     // we'll make this in a minute - remember begin with the end!
     // If we pass the authentication check, go to widgets
@@ -62,6 +62,7 @@ export function checkDashboardAuthorization ({ dispatch, getState }) {
   // ....
   // get the state.
   //
+  // debugger
   return (nextState, replace, next) => {
     // reference to the `client` piece of state
     const currentUser = getState().currentUser

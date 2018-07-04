@@ -1,7 +1,8 @@
 import { take, fork, cancel, call, put, cancelled, takeLatest } from 'redux-saga/effects'
 
 // We'll use this function to redirect to different routes based on cases
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
+import { push } from 'react-router-redux';
 
 // Helper for api errors
 import { handleApiErrors } from '../lib/api-errors'
@@ -47,7 +48,7 @@ function* logoutQuit () {
   localStorage.removeItem('email')
 
   // redirect to the /login screen
-  browserHistory.push('/login')
+  yield put(push('/login'))
 }
 
 function* loginFlow (email, password) {
@@ -69,7 +70,7 @@ function* loginFlow (email, password) {
     localStorage.setItem('email', email)
 
     // redirect them to WIDGETS!
-    browserHistory.push('/dashboard')
+    yield put(push('/dashboard'))
   } catch (error) {
     // error? send it to redux
     yield put({ type: LOGIN_ERROR, error })
@@ -77,7 +78,7 @@ function* loginFlow (email, password) {
     // No matter what, if our `forked` `task` was cancelled
     // we will then just redirect them to login
     if (yield cancelled()) {
-      browserHistory.push('/login')
+      yield put(push('/login'))
     }
   }
 
@@ -149,5 +150,5 @@ function* logout () {
   localStorage.removeItem('email')
 
   // redirect to the /login screen
-  browserHistory.push('/login')
+  yield put(push('/login'))
 }

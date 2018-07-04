@@ -23,7 +23,17 @@ import { connect } from 'react-redux';
 import { closeDrawer, openDrawer } from './actions'
 import styles from './dashboard-style'
 
+import { push } from 'react-router-redux';
+
 class MiniDrawer extends React.Component {
+
+  componentWillMount() {
+    const storedToken = localStorage.getItem('token')
+    const storedEmail = localStorage.getItem('email')
+    if (!storedToken || !storedEmail) {
+      this.props.history.push('/login')
+    }
+  }
 
   handleDrawerOpen = () => {
     this.props.openDrawer()
@@ -112,11 +122,23 @@ MiniDrawer.propTypes = {
 
 const mapStateToProps = state => ({
   dashboard: state.dashboard,
+  // currentUser: state.currentUser,
 })
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    closeDrawer: () => {
+      dispatch(closeDrawer())
+    },
+    openDrawer: () => {
+      dispatch(openDrawer())
+    },
+  };
+};
 
 MiniDrawer = connect(
   mapStateToProps,
-  { closeDrawer, openDrawer }
+  mapDispatchToProps
 )(MiniDrawer);
 
 export default withStyles(styles, { withTheme: true })(MiniDrawer);

@@ -6,6 +6,8 @@ import signup from './signup/reducer'
 import login from './login/reducer'
 import dashboard from './dashboard/reducer'
 
+import { routerReducer as router } from 'react-router-redux';
+
 
 const IndexReducer = combineReducers({
   login,
@@ -13,6 +15,7 @@ const IndexReducer = combineReducers({
   signup,
   dashboard,
   form,
+  router,
 })
 
 export default IndexReducer
