@@ -70,7 +70,7 @@ function* loginFlow (email, password) {
     localStorage.setItem('email', email)
 
     // redirect them to WIDGETS!
-    yield put(push('/dashboard'))
+    yield put(push('/app'))
   } catch (error) {
     // error? send it to redux
     yield put({ type: LOGIN_ERROR, error })

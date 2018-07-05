@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css'
 
+import AppLayout from './layout/AppLayout'
+import Welcome from './welcome'
 import Login from './login'
 import Signup from './signup'
+import { Route, Switch } from "react-router-dom";
 import Dashboard from './dashboard'
-import Welcome from './welcome'
-
-import { Route } from "react-router-dom";
 
 class App extends Component {
 
@@ -17,18 +17,17 @@ class App extends Component {
     if (!storedToken || !storedEmail) {
       this.props.history.push('/welcome')
     }
-    else {
-      this.props.history.push('/dashboard')
-    }
   }
 
   render() {
     return (
       <div className="App">
-        <Route path="/login" component={Login} />
-        <Route path="/welcome" component={Welcome} />
-        <Route exact path="/signup" component={Signup} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/welcome" component={Welcome} />
+          <Route path="/app" component={AppLayout} />
+        </Switch>
       </div>
     );
   }
@@ -39,9 +38,7 @@ const mapStateToProps = () => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
+  return {}
 };
 
 App = connect(
