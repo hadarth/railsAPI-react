@@ -13,21 +13,23 @@ class Events extends Component {
   }
 
   render() {
-    console.log('events:  ', this.props.events.events)
+    console.log('events.events:  ', this.props.events.events)
+    console.log('events:  ', this.props.events)
 
-    if (this.props.events.events.length < 1)  {
+    if (!this.props.events.events) {
       return <div>loading...</div>
     }
+    if (this.props.events.successful && this.props.events.events.length == 0) {
+      return <div>no events</div>
+    }
     return (
-        <Grid item xs={12}>
-          <Grid container  justify="center" spacing={16}>
-            {this.props.events.events.map(event => (
-              <Grid key={event.id} item>
-                <Card title={event.title}/>
-              </Grid>
-            ))}
+      <Grid container  justify="center" spacing={16}>
+        {this.props.events.events.map(event => (
+          <Grid key={event.id} item>
+            <Card title={event.title}/>
           </Grid>
-        </Grid>
+        ))}
+      </Grid>
     );
   }
 }
