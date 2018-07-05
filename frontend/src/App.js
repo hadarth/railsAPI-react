@@ -4,7 +4,7 @@ import './App.css'
 
 import Login from './login'
 import Signup from './signup'
-import Dashboard from './dashboard/dashboard2'
+import Dashboard from './dashboard'
 import Welcome from './welcome'
 
 import { Route } from "react-router-dom";
