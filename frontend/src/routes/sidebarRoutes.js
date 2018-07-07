@@ -1,5 +1,6 @@
 // @material-ui/icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import EventsIcon from "@material-ui/icons/Event";
 import Person from "@material-ui/icons/Person";
 import ContentPaste from "@material-ui/icons/ContentPaste";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
@@ -9,7 +10,8 @@ import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 
 // core components/views
-import DashboardPage from '../events';
+import Events from '../events';
+import Statistics from '../statistics';
 
 const sidebarRoutes = [
   {
@@ -17,14 +19,14 @@ const sidebarRoutes = [
     sidebarName: "Statistics",
     navbarName: "eventec.io UI",
     icon: DashboardIcon,
-    component: DashboardPage
+    component: Statistics
   },
   {
-    path: "/app/stam",
-    sidebarName: "stam",
-    navbarName: "stam title",
-    icon: DashboardIcon,
-    component: DashboardPage
+    path: "/app/myevents",
+    sidebarName: "My Events",
+    navbarName: "My Events",
+    icon: EventsIcon,
+    component: Events
   },
   { redirect: true, path: "/", to: "/app/statistics", navbarName: "Redirect" }
 ];

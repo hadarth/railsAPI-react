@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import { Route } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
+import "./assets/css/eventecio-react-redux.css";
 
 import {
   ConnectedRouter,
