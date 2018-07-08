@@ -7,6 +7,8 @@ import eventsRequest from './actions'
 import Card from '../components/simpleMediaCard'
 import Grid from '@material-ui/core/Grid';
 
+import { NavLink } from "react-router-dom";
+
 class Events extends Component {
   componentDidMount() {
     this.props.eventsRequest()
@@ -26,7 +28,9 @@ class Events extends Component {
       <Grid container  justify="center" spacing={16}>
         {this.props.events.events.map(event => (
           <Grid key={event.id} item>
-            <Card title={event.title}/>
+            <NavLink to={'/app/myevents/' + event.id} className='foo' key={event.id}>
+              <Card title={event.title} />
+            </NavLink>
           </Grid>
         ))}
       </Grid>

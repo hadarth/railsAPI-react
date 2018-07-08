@@ -23,12 +23,16 @@ import React from "react"
 
   // import image from "../sidebar-3.jpg"
   // import logo from "assets/img/reactlogo.png"
+  import EventPage from "../events/EventPage"
+
+
 
 const logo = 'https://png.icons8.com/ultraviolet/150/000000/batman-new.png';
 const image = 'http://identity-mag.com/wp-content/uploads/2017/08/party-in-barcelona.jpg';
 
 const switchRoutes = (
   <Switch>
+    <Route path='/app/myevents/:id' component={EventPage} />
     {sidebarRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.to} key={key} />

@@ -5,6 +5,8 @@ import Person from "@material-ui/icons/Person";
 import ContentPaste from "@material-ui/icons/ContentPaste";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
+import AttachMoney from "@material-ui/icons/MonetizationOn";
+import Group from "@material-ui/icons/Group";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
@@ -26,9 +28,26 @@ const sidebarRoutes = [
     sidebarName: "My Events",
     navbarName: "My Events",
     icon: EventsIcon,
-    component: Events
+    component: Events,
+    exact: true,
   },
-  { redirect: true, path: "/", to: "/app/statistics", navbarName: "Redirect" }
+  {
+    path: "/app/budget",
+    sidebarName: "Budgets",
+    navbarName: "Budgets",
+    icon: AttachMoney,
+    component: Events,
+    exact: true,
+  },
+  {
+    path: "/app/team",
+    sidebarName: "Team",
+    navbarName: "Team",
+    icon: Group,
+    component: Events,
+    exact: true,
+  },
+  { redirect: true, path: "/", to: "/app/routes-no-match-page", navbarName: "Redirect" }
 ];
 
 export default sidebarRoutes;
